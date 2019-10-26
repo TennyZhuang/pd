@@ -772,6 +772,7 @@ func (c *RaftCluster) putStore(store *metapb.Store) error {
 			core.SetStoreVersion(store.Version),
 			core.SetStoreLabels(labels),
 		)
+		s.GetMeta().Region = store.GetRegion()
 	}
 	// Check location labels.
 	keysSet := make(map[string]struct{})
